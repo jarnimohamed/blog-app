@@ -1,32 +1,73 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+
+import CssBaseline from '@mui/material/CssBaseline';
+import Link from '@mui/material/Link';
+import NavLink from '@mui/material/Link';
 
 export default function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            JARNI
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <React.Fragment>
+			<CssBaseline />
+			<AppBar
+				position="static"
+				color="default"
+				elevation={0}
+				style= {{borderBottom: `1px solid `,}}
+			>
+				<Toolbar >
+					<Typography
+						variant="h6"
+						color="inherit"
+						noWrap
+						style={{flexGrow: 1,}}
+					>
+						<Link
+							component={NavLink}
+							to="/"
+							underline="none"
+							color="textPrimary"
+						>
+							JARNI
+						</Link>
+					</Typography>
+					<nav>
+						<Link
+							color="textPrimary"
+							href="register"
+							style={{margin: 3,}}
+							component={NavLink}
+							to="/register"
+						>
+							Register
+						</Link>
+					</nav>
+					<Button
+						href="login"
+						color="primary"
+						variant="outlined"
+						style={{margin: 1,}}
+						component={NavLink}
+						to="/login"
+					>
+						Login
+					</Button>
+					<Button
+						href="logout"
+						color="primary"
+						variant="outlined"
+						style={{margin: 1,}}
+						component={NavLink}
+						to="/logout"
+					>
+						Logout
+					</Button>
+				</Toolbar>
+			</AppBar>
+		</React.Fragment>
   );
 }
